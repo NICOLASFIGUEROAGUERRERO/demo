@@ -1,0 +1,122 @@
+{
+  "basics": {
+    "name": "Nicolas Figueroa",
+    "label": null,
+    "image": "https://avatars.githubusercontent.com/u/12345678?v=4",
+    "email": "nicofigue11@gmail.com",
+    "phone": "+57 3163500519",
+    "url": "",
+    "summary": "Apasionado por la tecnología y el desarrollo de videjugeos",
+    "location": {
+      "address": "Mz 1 casa 12",
+      "postalCode": "",
+      "city": "Pasto",
+      "countryCode": "ES",
+      "region": "Nariño"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "juanmartinez",
+        "url": "https://www.linkedin.com/in/nicolas-figueroa-guerrero-ab6741384/"
+      },
+      {
+        "network": "GitHub",
+        "username": "NICOLASFIGUEROAGUERRERO",
+        "url": "https://github.com/NICOLASFIGUEROAGUERRERO"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Biblioteca Publica Comfamiliar",
+      "position": "Auxiliar de Archivo y Registro",
+      "url": null,
+      "startDate": "2021",
+      "endDate": "2022",
+      "summary": "Responsable de la organización, digitalización y gestión de documentos y registros. Apoyo en el mantenimiento de bases de datos internas y seguimiento de procesos administrativos.",
+      "highlights": [
+        "Clasificación y archivo de documentación física y digital",
+        "Colaboración con el equipo para mejorar la eficiencia en la gestión documental"
+      ]
+    },
+    {
+      "name": "SoftDev",
+      "position": "Junior Frontend Developer",
+      "url": "https://softdev.com",
+      "startDate": "2023",
+      "endDate": null,
+      "summary": "Desarrollo de interfaces web y aprendizaje práctico de bases de datos SQL. Participación en proyectos académicos y personales aplicando conceptos de frontend y backend básico",
+      "highlights": [
+        "Conexión de aplicaciones con bases de datos SQL para almacenamiento y consulta de información",
+        "Creación de páginas web interactivas usando HTML y CSS"
+      ]
+    },
+    {
+      "name": "Desarrollador Independiente",
+      "position": "Indie Game Developer",
+      "startDate": "2024",
+      "endDate": null,
+      "summary": "Desarrollador de videojuegos independientes con enfoque en proyectos pequeños y experimentales.",
+      "highlights": [
+        "Creación de videojuegos en solitario e indie",
+        "Lenguajes: GDScript y C++ a nivel básico",
+        "Aprendizaje continuo y autoformación desde 2023",
+        "Actualmente en desarrollo de proyectos personales"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Code4Good",
+      "position": "Mentor",
+      "url": "https://code4good.org/",
+      "startDate": "2020-01-01",
+      "endDate": "2021-12-01",
+      "summary": "Mentoría a jóvenes desarrolladores en proyectos sociales.",
+      "highlights": [
+        "Organización de talleres"
+      ]
+    }
+  ],
+"education": [
+  {
+    "institution": "Corporación Universitaria Autónoma de Nariño",
+    "url": "https://www.aunar.edu.co/",
+    "area": "Ingeniería Informática",
+    "studyType": "7 semestre",
+    "startDate": "2022-08-08",
+    "endDate": null,
+    "score": "8.5",
+    "courses": [
+      "Programación Intermedio",
+      "Bases de Datos",
+      "Java",
+      "Interfaz Gráfica"
+    ]
+  },
+  {
+    "institution": "Colegio Comfamiliar de Nariño Siglo XXI",
+    "url": "https://colegiocomfamiliarnarino.edu.co/",
+    "area": "Bachillerato Académico",
+    "studyType": "Secundaria",
+    "startDate": "2015",
+    "endDate": "2022",
+    "score": "",
+    "courses": [
+    ]
+  },
+  {
+    "institution": "Colegio Comfamiliar de Nariño Siglo XXI",
+    "url": "https://colegiocomfamiliarnarino.edu.co/",
+    "area": "Auxilia de archivo y registro",
+    "studyType": "Técnico",
+    "startDate": "2021",
+    "endDate": "2022",
+    "score": "",
+    "courses": [
+    ]
+  }
+]
+
+}

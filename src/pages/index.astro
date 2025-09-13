@@ -4,19 +4,91 @@ import Layout from '../layouts/Layout.astro';
 import Content from '../components/Content.astro';
 import Footer from '../components/Footer.astro';
 import "../styles/global.css";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import OtraSeccion from '@/components/OtraSeccion.astro';
+import cv from "../cv.json";
 ---
 
-<Layout>
-	<Header />
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{cv.basics.name} - CV</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f9f9f9;
+        color: #333;
+      }
+      main {
+        max-width: 900px;
+        margin: auto;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+      h1, h2 {
+        text-align: center;
+        color: #222;
+      }
+      .contact {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .experience, .education {
+        margin-bottom: 2rem;
+      }
+      .job {
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-left: 4px solid #ff6600;
+        background: #fafafa;
+      }
+      .job h3 {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
 
-	<h1 class= "bg-amber-600">
-  	MARLON
-	</h1>
-	
-	<Content />
-	<Footer />
-	
-</Layout>
+    <main>
+      <!-- Información básica -->
+      <h1>{cv.basics.name}</h1>
+      <h2>{cv.basics.label}</h2>
+      <div class="contact">
+        <p>Email: <a href={`mailto:${cv.basics.email}`}>{cv.basics.email}</a></p>
+        <p>Teléfono: {cv.basics.phone}</p>
+        <p><a href={cv.basics.url} target="_blank">{cv.basics.url}</a></p>
+      </div>
+
+      <!-- Experiencia laboral -->
+      <section class="experience">
+        <h2>Experiencia</h2>
+        {cv.work.map(job => (
+          <div class="job">
+            <h3>{job.position} - {job.name}</h3>
+            <p><strong>{job.startDate} - {job.endDate || "Actual"}</strong></p>
+            <p>{job.summary}</p>
+          </div>
+        ))}
+      </section>
+
+      <!-- Educación -->
+      <section class="education">
+        <h2>Educación</h2>
+        {cv.education.map(edu => (
+          <div class="job">
+            <h3>{edu.studyType} - {edu.institution}</h3>
+            <p><strong>{edu.startDate} - {edu.endDate}</strong></p>
+            <p>{edu.area}</p>
+          </div>
+        ))}
+      </section>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>
