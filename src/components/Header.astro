@@ -6,31 +6,89 @@ import { Image } from 'astro:assets';
 import profilePic from "../assets/FotoNFG.jpg";
 ---
 
-<header id="container" class="bg-gradient-to-r from-pink-600 to-purple-700 text-white py-12 px-6">
+<header id="container" class="bg-gradient-to-r from-pink-600 to-purple-700 text-white py-12 px-6 relative">
   <div id="hero" class="flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto">
     
     <!-- Foto de perfil -->
     <div class="flex-shrink-0">
       <img 
-src={profilePic.src} 
-  alt="Foto de perfil" 
-  class="w-48 h-48 rounded-full border-4 border-white shadow-lg object-cover" 
+        src={profilePic.src} 
+        alt="Foto de perfil" 
+        class="w-48 h-48 rounded-full border-4 border-white shadow-lg object-cover" 
       />
     </div>
 
     <!-- Información personal -->
     <div class="text-center md:text-left">
       <h1 class="text-4xl font-bold mb-2">Nicolás Figueroa Guerrero</h1>
-      <h2 class="text-xl font-light mb-4">Estudiante Ingenieria</h2>
+      <h2 class="text-xl font-light mb-4">Estudiante Ingeniería</h2>
       <p class="max-w-xl text-lg">
         Apasionado por el desarrollo web moderno, la innovación tecnológica y la creación de aplicaciones escalables.
       </p>
     </div>
   </div>
-</header>
 
-<style>
-  #container {
-    font-family: Inter, Roboto, 'Helvetica Neue', Arial, sans-serif;
-  }
-</style>
+  <button
+  id="theme-toggle"
+  type="button"
+  aria-label="Cambiar tema"
+  aria-pressed="false"
+  class="absolute top-4 right-4 p-2 rounded-full bg-white text-black dark:bg-gray-800 dark:text-white shadow-lg transition"
+>
+  🌙
+</button>
+
+<script>
+  (function () {
+    // Ejecuta cuando DOM esté listo
+    function init() {
+      const btn = document.getElementById("theme-toggle");
+      if (!btn) {
+        console.warn("theme-toggle button not found");
+        return;
+      }
+      const root = document.documentElement;
+      const body = document.body;
+
+      const setIcon = () => {
+        const isDark = root.classList.contains("dark");
+        btn.textContent = isDark ? "☀️" : "🌙";
+        btn.setAttribute("aria-pressed", isDark ? "true" : "false");
+        btn.title = isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
+      };
+
+      // inicializar icono
+      setIcon();
+
+      btn.addEventListener("click", () => {
+        const willBeDark = !root.classList.contains("dark");
+
+        // Toggle en ambos nodos (html + body) como fallback
+        root.classList.toggle("dark");
+        if (body) body.classList.toggle("dark");
+
+        try {
+          localStorage.setItem("theme", willBeDark ? "dark" : "light");
+        } catch (e) {
+          // ignore (ej. incognito)
+        }
+
+        setIcon();
+
+        // para debugging visible en consola
+        console.log("theme toggled -> isDark:", root.classList.contains("dark"));
+        console.log("html.classList:", root.className, "body.classList:", body?.className);
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+</script>
+
+
+
+

@@ -1,5 +1,8 @@
 ---
 import LogoSvg from "../icons/logonf.svg";
+import GithubIcon from "../icons/github.svg";
+import LinkedinIcon from "../icons/linkedin.svg";
+import EmailIcon from "../icons/email.svg";
 ---
 
 <footer class="mx-auto w-full max-w-[1392px] px-4 bg-gradient-to-r from-pink-600 to-purple-700 py-6"> 
@@ -18,13 +21,19 @@ import LogoSvg from "../icons/logonf.svg";
       </div>
     </div>
 
-    <!-- Lado derecho con enlaces -->
+     <!-- Lado derecho con íconos -->
     <div class="flex flex-col items-end">
       <h5 class="text-lg font-bold uppercase">Sígueme</h5>
       <div class="flex gap-4 mt-2">
-        <a href="https://github.com/" target="_blank" class="hover:text-gray-200">GitHub</a>
-        <a href="https://linkedin.com/" target="_blank" class="hover:text-gray-200">LinkedIn</a>
-        <a href="mailto:correo@ejemplo.com" class="hover:text-gray-200">Email</a>
+        <a href="https://github.com/" target="_blank" aria-label="GitHub">
+          <GithubIcon class="w-6 h-6 hover:text-pink-400 transition" />
+        </a>
+        <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn">
+          <LinkedinIcon class="w-6 h-6 hover:text-pink-400 transition" />
+        </a>
+        <a href="mailto:correo@ejemplo.com" aria-label="Email">
+          <EmailIcon class="w-6 h-6 hover:text-pink-400 transition" />
+        </a>
       </div>
     </div>
   </div>
