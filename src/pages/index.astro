@@ -1,60 +1,43 @@
 ---
-import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
-import Content from '../components/Content.astro';
-import Footer from '../components/Footer.astro';
-import "../styles/global.css";
-import OtraSeccion from '@/components/OtraSeccion.astro';
 import cv from "../cv.json";
 ---
 
-<html lang="es" class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{cv.basics.name} - CV</title>
+<Layout title={cv.basics.name + " - CV"}>
+  <main class="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md transition-colors duration-500">
+    <!-- Información básica -->
+    <h1 class="text-center text-3xl font-bold mb-2">{cv.basics.name}</h1>
+    <h2 class="text-center text-lg text-gray-600 dark:text-gray-300 mb-6">{cv.basics.label}</h2>
 
-  </head>
-  <body class="transition-colors duration-500">
-    <Header />
+    <div class="contact text-center mb-8">
+      <p>Email: <a href={`mailto:${cv.basics.email}`} class="text-pink-600 dark:text-pink-400">{cv.basics.email}</a></p>
+      <p>Teléfono: {cv.basics.phone}</p>
+      <p><a href={cv.basics.url} target="_blank" class="text-pink-600 dark:text-pink-400">{cv.basics.url}</a></p>
+    </div>
 
-    <main class="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md transition-colors duration-500">
-      <!-- Información básica -->
-      <h1 class="text-center text-3xl font-bold mb-2">{cv.basics.name}</h1>
-      <h2 class="text-center text-lg text-gray-600 dark:text-gray-300 mb-6">{cv.basics.label}</h2>
+    <!-- Experiencia laboral -->
+    <section class="experience mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Experiencia</h2>
+      {cv.work.map(job => (
+        <div class="job mb-4 p-4 border-l-4 border-pink-600 bg-gray-100 dark:bg-gray-700 rounded">
+          <h3 class="font-bold">{job.position} - {job.name}</h3>
+          <p><strong>{job.startDate} - {job.endDate || "Actual"}</strong></p>
+          <p>{job.summary}</p>
+        </div>
+      ))}
+    </section>
 
-      <div class="contact text-center mb-8">
-        <p>Email: <a href={`mailto:${cv.basics.email}`} class="text-pink-600 dark:text-pink-400">{cv.basics.email}</a></p>
-        <p>Teléfono: {cv.basics.phone}</p>
-        <p><a href={cv.basics.url} target="_blank" class="text-pink-600 dark:text-pink-400">{cv.basics.url}</a></p>
-      </div>
-
-      <!-- Experiencia laboral -->
-      <section class="experience mb-8">
-        <h2 class="text-2xl font-semibold mb-4">Experiencia</h2>
-        {cv.work.map(job => (
-          <div class="job mb-4 p-4 border-l-4 border-pink-600 bg-gray-100 dark:bg-gray-700 rounded">
-            <h3 class="font-bold">{job.position} - {job.name}</h3>
-            <p><strong>{job.startDate} - {job.endDate || "Actual"}</strong></p>
-            <p>{job.summary}</p>
-          </div>
-        ))}
-      </section>
-
-      <!-- Educación -->
-      <section class="education mb-8">
-        <h2 class="text-2xl font-semibold mb-4">Educación</h2>
-        {cv.education.map(edu => (
-          <div class="job mb-4 p-4 border-l-4 border-purple-600 bg-gray-100 dark:bg-gray-700 rounded">
-            <h3 class="font-bold">{edu.studyType} - {edu.institution}</h3>
-            <p><strong>{edu.startDate} - {edu.endDate || "Actual"}</strong></p>
-            <p>{edu.area}</p>
-          </div>
-        ))}
-      </section>
-
-    </main>
-
-    <Footer />
-  </body>
-</html>
+    <!-- Educación -->
+    <section class="education mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Educación</h2>
+      {cv.education.map(edu => (
+        <div class="job mb-4 p-4 border-l-4 border-purple-600 bg-gray-100 dark:bg-gray-700 rounded">
+          <h3 class="font-bold">{edu.studyType} - {edu.institution}</h3>
+          <p><strong>{edu.startDate} - {edu.endDate || "Actual"}</strong></p>
+          <p>{edu.area}</p>
+        </div>
+      ))}
+    </section>
+  </main>
+</Layout>
 
